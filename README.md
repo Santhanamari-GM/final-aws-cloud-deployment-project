@@ -35,7 +35,6 @@ This project uses exactly three AWS services:
 - **Region:** Mumbai (`ap-south-1`)
 - **Web Server:** Apache HTTP Server
 - **Operating System:** Linux
-- **Website URL:** http://13.201.75.64
 
 **Security Group Rules:**
 
