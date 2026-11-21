@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velvet Matte Lipstick | ZannGlamCart</title>
+<meta name="description" content="Velvet Matte Lipstick by ZannGlamCart Petal. Five shades, 8-hour wear, comfortable matte finish.">
+<style>
+  :root {
+    --ink: #3a1230;
+    --ink-soft: #6b4560;
+    --paper: #fbe9ea;
+    --paper-deep: #f4d3d8;
+    --white: #fffafa;
+    --gold: #c9a14a;
+    --gold-dark: #8f6d22;
+    --shade: #a3444f;
+    --tint: #f0c4c9;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  }
+
+  /* Shade switching: pure CSS, driven by the checked radio button */
+  .page:has(#shade1:checked) { --shade: #c98a83; --tint: #f6dcd8; }
+  .page:has(#shade2:checked) { --shade: #a3444f; --tint: #f0c4c9; }
+  .page:has(#shade3:checked) { --shade: #7b1e4a; --tint: #e8bcd0; }
+  .page:has(#shade4:checked) { --shade: #c8281f; --tint: #f6c3bd; }
+  .page:has(#shade5:checked) { --shade: #8e5a7a; --tint: #e6d0e0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  /* Top bar */
+  .notice {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.55rem 1rem;
+  }
+  header.site {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem clamp(1.2rem, 5vw, 4rem);
+  }
+  .brand {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-style: italic;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  header.site nav { display: flex; gap: 1.6rem; font-size: 0.95rem; }
+  header.site nav a { text-decoration: none; padding: 0.2rem 0; border-bottom: 2px solid transparent; }
+  header.site nav a:hover { border-bottom-color: var(--shade); }
+
+  /* Product section */
+  .product {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(1.5rem, 5vw, 5rem);
+    padding: 1rem clamp(1.2rem, 5vw, 4rem) 4rem;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Stage with CSS-drawn lipstick */
+  .stage {
+    position: relative;
+    min-height: 560px;
+    border-radius: 280px 280px 24px 24px;
+    background: var(--tint);
+    transition: background 0.5s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .stage::before {
+    content: "";
+    position: absolute;
+    width: 78%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--shade);
+    opacity: 0.18;
+    top: 8%;
+    left: 11%;
+    transition: background 0.5s ease;
+  }
+  .lipstick {
+    position: relative;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .bullet {
+    width: 74px;
+    height: 150px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.18), rgba(255,255,255,0.22) 40%, rgba(0,0,0,0.12)), var(--shade);
+    clip-path: polygon(0 100%, 0 38%, 12% 14%, 50% 0, 88% 18%, 100% 40%, 100% 100%);
+    transition: background-color 0.5s ease;
+  }
+  .collar {
+    width: 86px;
+    height: 36px;
+    background: linear-gradient(90deg, #7d5f1f, var(--gold) 35%, #f0dc9c 55%, var(--gold-dark));
+  }
+  .tube {
+    width: 110px;
+    height: 230px;
+    border-radius: 6px 6px 0 0;
+    background: linear-gradient(90deg, #14060f, #4b1d40 35%, #2a0d24 65%, #0e040b);
+    position: relative;
+  }
+  .tube::after {
+    content: "Velvet Kiss";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    white-space: nowrap;
+    font-family: var(--serif);
+    font-style: italic;
+    color: #e9cf86;
+    font-size: 1.05rem;
+  }
+  .stage-name {
+    position: absolute;
+    top: 1.6rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+  }
+
+  /* Info column */
+  .info h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+    margin-bottom: 0.6rem;
+  }
+  .tagline { color: var(--ink-soft); font-size: 1.1rem; max-width: 34ch; margin-bottom: 1.2rem; }
+  .rating { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 1.4rem; }
+  .rating .stars { color: var(--gold-dark); letter-spacing: 0.15em; margin-right: 0.4rem; }
+  .price { font-family: var(--serif); font-size: 2rem; margin-bottom: 1.6rem; }
+  .price small { font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); margin-left: 0.5rem; }
+
+  fieldset { border: 0; margin-bottom: 1.6rem; }
+  legend { font-weight: 600; margin-bottom: 0.7rem; }
+  legend .picked { font-weight: 400; color: var(--ink-soft); margin-left: 0.4rem; }
+  .picked span { display: none; }
+  .page:has(#shade1:checked) .n1,
+  .page:has(#shade2:checked) .n2,
+  .page:has(#shade3:checked) .n3,
+  .page:has(#shade4:checked) .n4,
+  .page:has(#shade5:checked) .n5 { display: inline; }
+
+  .swatches { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .swatches input { position: absolute; opacity: 0; pointer-events: none; }
+  .swatches label {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 1px var(--ink-soft);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .swatches label:hover { transform: scale(1.06); }
+  .swatches input:checked + label { box-shadow: 0 0 0 3px var(--ink); }
+  .swatches input:focus-visible + label { outline: 3px solid var(--ink); outline-offset: 4px; }
+  .sw1 { background: #c98a83; }
+  .sw2 { background: #a3444f; }
+  .sw3 { background: #7b1e4a; }
+  .sw4 { background: #c8281f; }
+  .sw5 { background: #8e5a7a; }
+
+  .actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+  .btn {
+    display: inline-block;
+    font: inherit;
+    font-weight: 600;
+    padding: 0.95rem 2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid var(--ink);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.primary:hover { background: var(--shade); border-color: var(--shade); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--paper); }
+
+  .perks { list-style: none; color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 1.6rem; }
+  .perks li { padding: 0.15rem 0; }
+  .perks li::before { content: "\2713"; color: var(--shade); font-weight: 700; margin-right: 0.6rem; }
+
+  details { border-top: 1px solid var(--ink-soft); padding: 0.9rem 0; }
+  details:last-of-type { border-bottom: 1px solid var(--ink-soft); }
+  summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 1.3rem; line-height: 1; }
+  details[open] summary::after { content: "\2212"; }
+  details p { margin-top: 0.7rem; color: var(--ink-soft); max-width: 52ch; }
+
+  /* Feature band */
+  .features { background: var(--ink); color: var(--paper); padding: 4rem clamp(1.2rem, 5vw, 4rem); }
+  .features h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 2rem; max-width: 20ch; }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.2rem;
+    max-width: 1280px;
+  }
+  .feature-grid h3 { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; color: #f0dc9c; margin-bottom: 0.4rem; }
+  .feature-grid p { color: #ecd3d8; }
+
+  /* Shade guide */
+  .guide { padding: 4rem clamp(1.2rem, 5vw, 4rem); max-width: 1280px; margin: 0 auto; }
+  .guide h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1.6rem; }
+  .guide-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.2rem; }
+  .guide-item { background: var(--white); border-radius: 18px; padding: 1.3rem; }
+  .guide-item .dot { width: 100%; height: 56px; border-radius: 12px; margin-bottom: 0.9rem; }
+  .guide-item h3 { font-size: 1.05rem; }
+  .guide-item p { font-size: 0.92rem; color: var(--ink-soft); }
+
+  footer { background: var(--paper-deep); padding: 2.5rem clamp(1.2rem, 5vw, 4rem); display: flex; flex-wrap: wrap; gap: 1rem 3rem; justify-content: space-between; font-size: 0.92rem; }
+  footer .brand { font-size: 1.3rem; }
+  footer p { color: var(--ink-soft); }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .product { grid-template-columns: 1fr; }
+    .stage { min-height: 480px; border-radius: 220px 220px 20px 20px; }
+    header.site nav { gap: 1rem; font-size: 0.88rem; }
+  }
+  @media (max-width: 480px) {
+    header.site { flex-direction: column; gap: 0.6rem; }
+    .btn { width: 100%; text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="notice">Free shipping on orders over &#8377;999</div>
+
+  <header class="site">
+    <a class="brand" href="#top">ZannGlamCart</a>
+    <nav aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#why">Why you will love it</a>
+      <a href="#shades">Shade guide</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="product" id="shop">
+
+      <div class="stage" aria-hidden="true">
+        <p class="stage-name"><span class="picked"><span class="n1">Petal Nude</span><span class="n2">Rosewood</span><span class="n3">Berry Crush</span><span class="n4">Poppy Red</span><span class="n5">Mauve Hour</span></span></p>
+        <div class="lipstick">
+          <div class="bullet"></div>
+          <div class="collar"></div>
+          <div class="tube"></div>
+        </div>
+      </div>
+
+      <div class="info">
+        <h1>Velvet Matte Lipstick</h1>
+        <p class="tagline">A soft matte colour that feels light and stays put through the day.</p>
+        <p class="rating"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>4.8 out of 5 from 1,240 reviews</p>
+        <p class="price">&#8377;799 <small>3.5 g</small></p>
+
+        <form onsubmit="return false">
+          <fieldset>
+            <legend>Shade <span class="picked"><span class="n1">Petal Nude</span><span class="n2">Rosewood</span><span class="n3">Berry Crush</span><span class="n4">Poppy Red</span><span class="n5">Mauve Hour</span></span></legend>
+            <div class="swatches">
+              <input type="radio" name="shade" id="shade1" aria-label="Petal Nude">
+              <label for="shade1" class="sw1" title="Petal Nude"></label>
+              <input type="radio" name="shade" id="shade2" checked aria-label="Rosewood">
+              <label for="shade2" class="sw2" title="Rosewood"></label>
+              <input type="radio" name="shade" id="shade3" aria-label="Berry Crush">
+              <label for="shade3" class="sw3" title="Berry Crush"></label>
+              <input type="radio" name="shade" id="shade4" aria-label="Poppy Red">
+              <label for="shade4" class="sw4" title="Poppy Red"></label>
+              <input type="radio" name="shade" id="shade5" aria-label="Mauve Hour">
+              <label for="shade5" class="sw5" title="Mauve Hour"></label>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="actions">
+          <a class="btn primary" href="#shop">Add to bag</a>
+          <a class="btn ghost" href="#shades">See all shades</a>
+        </div>
+
+        <ul class="perks">
+          <li>Up to 8 hours of wear</li>
+          <li>Vegan and cruelty free</li>
+          <li>Easy returns within 14 days</li>
+        </ul>
+
+        <details open>
+          <summary>What it feels like</summary>
+          <p>Glides on in one stroke and dries to a smooth matte finish. It does not feel tight or chalky, so you can wear it from morning to night.</p>
+        </details>
+        <details>
+          <summary>How to apply</summary>
+          <p>Line the lips first for a sharper edge. Swipe the lipstick from the centre outward, then blot once with a tissue for a softer, longer-lasting finish.</p>
+        </details>
+        <details>
+          <summary>Ingredients</summary>
+          <p>Castor seed oil, shea butter, vitamin E, jojoba esters, mica, and iron oxides. Free from parabens and fragrance.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="features" id="why">
+      <h2>Made for lips that move all day</h2>
+      <div class="feature-grid">
+        <div>
+          <h3>Comfort matte</h3>
+          <p>Shea butter and vitamin E keep the formula soft, so lips stay smooth.</p>
+        </div>
+        <div>
+          <h3>One-swipe colour</h3>
+          <p>Rich pigment gives full colour in a single pass, with no layering needed.</p>
+        </div>
+        <div>
+          <h3>Stays through meals</h3>
+          <p>The long-wear formula resists fading, so touch-ups are rare.</p>
+        </div>
+        <div>
+          <h3>Gentle on skin</h3>
+          <p>Vegan, cruelty free, and made without parabens or added fragrance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide" id="shades">
+      <h2>Find your shade</h2>
+      <div class="guide-list">
+        <div class="guide-item"><div class="dot sw1"></div><h3>Petal Nude</h3><p>A soft peach-beige for every day. Suits fair to medium skin.</p></div>
+        <div class="guide-item"><div class="dot sw2"></div><h3>Rosewood</h3><p>A warm dusty rose. Flatters light to deep skin tones.</p></div>
+        <div class="guide-item"><div class="dot sw3"></div><h3>Berry Crush</h3><p>A deep berry for evenings. Looks striking on medium to deep skin.</p></div>
+        <div class="guide-item"><div class="dot sw4"></div><h3>Poppy Red</h3><p>A bright true red. Works on every skin tone.</p></div>
+        <div class="guide-item"><div class="dot sw5"></div><h3>Mauve Hour</h3><p>A cool smoky mauve. Pairs well with neutral eye looks.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top">ZannGlamCart</a>
+    <p>Delivery in 3 to 5 working days across India.</p>
+    <p>&copy; 2026 ZannGlamCart. Project hosted on AWS.</p>
+  </footer>
+
+</div>
+</body>
+</html>
